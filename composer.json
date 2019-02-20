@@ -1,0 +1,17 @@
+{
+    "name": "kurisu/exin-core-php-sdk",
+    "authors": [
+        {
+            "name": "Amatist Kurisu",
+            "email": "misaki.zhcy@gmail.com"
+        }
+    ],
+    "require": {
+        "ramsey/uuid": "^3.8",
+        "rybakit/msgpack": "^0.5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0",
+        "symfony/var-dumper": "^4.2"
+    }
+}
