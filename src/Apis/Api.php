@@ -69,6 +69,4 @@ class Api
 
         return json_decode($content, true);
     }
-
-
 }

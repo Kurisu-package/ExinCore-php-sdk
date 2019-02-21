@@ -16,7 +16,7 @@ use Kurisu\ExinCore\Exceptions\ExinCoreExceptions;
 
 /**
  * @see \ExinCore\Apis\Api
- * @method array createOrder($oldPin, $pin): array
+ * @method array createOrder($baseAsset, $exchangeAsset, $amount): array
  * @method array readExchangeList($baseAssetUuid = null, $exchangeAssetUuid = null): array
  */
 class ExinCore
@@ -28,6 +28,7 @@ class ExinCore
     protected $switches;
     public $api;
     protected $mixinAccountConfig;
+    protected $mixinSDK;
 
 
     /**
@@ -45,8 +46,9 @@ class ExinCore
         ]);
         $this->switches           = &$this->config['switches'];
         $this->mixinAccountConfig = $mixinAccountConfig;
+        $this->mixinSDK           = new MixinSDK($this->mixinAccountConfig);
 
-        $this->api = new Api($this->httpClient, $this->config, new MixinSDK($this->mixinAccountConfig));
+        $this->api = new Api($this->httpClient, $this->config, $this->mixinSDK);
     }
 
     /**
@@ -77,7 +79,7 @@ class ExinCore
      *
      * @throws ExinCoreExceptions
      */
-    public function boomRoom($res)
+    protected function boomRoom($res)
     {
         throw new ExinCoreExceptions($res['message'], $res['code']);
     }
@@ -118,7 +120,7 @@ class ExinCore
     /**
      * @return mixed
      */
-    public function getConfig()
+    public function getConfig(): array
     {
         return $this->config;
     }
@@ -126,9 +128,17 @@ class ExinCore
     /**
      * @return array
      */
-    public function getMixinAccountConfig()
+    public function getMixinAccountConfig(): array
     {
         return $this->mixinAccountConfig;
+    }
+
+    /**
+     * @return MixinSDK
+     */
+    public function getMixinSDK(): MixinSDK
+    {
+        return $this->mixinSDK;
     }
 
 }
