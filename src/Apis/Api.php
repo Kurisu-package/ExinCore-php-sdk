@@ -20,6 +20,13 @@ class Api
     protected $mixinSDK;
 
 
+    /**
+     * Api constructor.
+     *
+     * @param Client   $httpClient
+     * @param array    $config
+     * @param MixinSDK $mixinSDK
+     */
     public function __construct(Client $httpClient, array $config, MixinSDK $mixinSDK)
     {
         $this->httpClient = $httpClient;
@@ -27,6 +34,13 @@ class Api
         $this->mixinSDK   = $mixinSDK;
     }
 
+    /**
+     * @param $baseAsset
+     * @param $exchangeAsset
+     * @param $amount
+     *
+     * @return array
+     */
     public function createOrder($baseAsset, $exchangeAsset, $amount): array
     {
         $memo = base64_encode(MessagePack::pack([
@@ -38,6 +52,12 @@ class Api
         return $res;
     }
 
+    /**
+     * @param null $baseAsset
+     * @param null $exchangeAsset
+     *
+     * @return array
+     */
     public function readExchangeList($baseAsset = null, $exchangeAsset = null): array
     {
         $response = $this->httpClient->get('?' . http_build_query([

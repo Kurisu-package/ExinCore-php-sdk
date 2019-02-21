@@ -30,6 +30,11 @@ class ExinCore
     protected $mixinAccountConfig;
 
 
+    /**
+     * ExinCore constructor.
+     *
+     * @param array $mixinAccountConfig
+     */
     public function __construct(array $mixinAccountConfig)
     {
         $this->config             = require(__DIR__ . '/../config/config.php');
@@ -44,6 +49,13 @@ class ExinCore
         $this->api = new Api($this->httpClient, $this->config, new MixinSDK($this->mixinAccountConfig));
     }
 
+    /**
+     * @param $name
+     * @param $arguments
+     *
+     * @return mixed
+     * @throws ExinCoreExceptions
+     */
     public function __call($name, $arguments)
     {
         // 请求 Exincore/Apis/Api 中的方法
@@ -60,34 +72,60 @@ class ExinCore
 
     }
 
+    /**
+     * @param $res
+     *
+     * @throws ExinCoreExceptions
+     */
     public function boomRoom($res)
     {
         throw new ExinCoreExceptions($res['message'], $res['code']);
     }
 
+    /**
+     * @param bool $isRaw
+     *
+     * @return bool
+     */
     public function setRaw(bool $isRaw)
     {
         $this->switches['raw'] = $isRaw;
         return true;
     }
 
+    /**
+     * @param bool $isBoom
+     *
+     * @return bool
+     */
     public function setBoom(bool $isBoom)
     {
         $this->switches['boom'] = $isBoom;
         return true;
     }
 
+    /**
+     * @param int $timeout
+     *
+     * @return bool
+     */
     public function setTimeout(int $timeout)
     {
         $this->switches['timeout'] = $timeout;
         return true;
     }
 
+    /**
+     * @return mixed
+     */
     public function getConfig()
     {
         return $this->config;
     }
 
+    /**
+     * @return array
+     */
     public function getMixinAccountConfig()
     {
         return $this->mixinAccountConfig;
