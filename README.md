@@ -71,8 +71,8 @@ $exincoreSdk->createOrder($baseAsset, $exchangeAsset, 1);
 ### 调用
 |code|description
 |---|---
-|`MixinSDK::readExchangeList($baseAsset = null, $exchangeAsset = null)`| 查询指定交易对的行情
-|`MixinSDK::createOrder($baseAsset, $exchangeAsset, $amount)`| 创建订单
+|`ExinCore::readExchangeList($baseAsset = null, $exchangeAsset = null)`| 查询指定交易对的行情
+|`ExinCore::createOrder($baseAsset, $exchangeAsset, $amount)`| 创建订单
 
 ## WARNING
 有三个不太重要的可配置项
