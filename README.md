@@ -70,7 +70,7 @@ $exincoreSdk->createOrder($baseAsset, $exchangeAsset, 1);
 
 ### 调用
 |code|description
-|---|---|---|---
+|---|---
 |`MixinSDK::readExchangeList($baseAsset = null, $exchangeAsset = null)`| 查询指定交易对的行情
 |`MixinSDK::createOrder($baseAsset, $exchangeAsset, $amount)`| 创建订单
 
@@ -96,7 +96,7 @@ $exincoreSdk->createOrder($baseAsset, $exchangeAsset, 1);
 
 ## Alternatives
 
-[kurisu/laravel-exincore-sdk](https://github.com/Kurisu-package/laravel-exincore-sdk)]
+[[kurisu/laravel-exincore-sdk](https://github.com/Kurisu-package/laravel-exincore-sdk)]
 
 ## LICENSE
 
