@@ -77,19 +77,27 @@ $exincoreSdk->createOrder($baseAsset, $exchangeAsset, 1);
 ## WARNING
 有三个不太重要的可配置项
 1. 是否需要返回原始响应体
-```php
-$exincoreSdk = new \Kurisu\ExinCore\ExinCore($config);
-$exincoreSdk->setRaw(true);  // or false , 默认为 false
-```
+    ```php
+    $exincoreSdk = new \Kurisu\ExinCore\ExinCore($config);
+    $exincoreSdk->setRaw(true);  // or false , 默认为 false
+    ```
 
 1. 如果 Mixin Network Api 返回错误码，是否抛出异常
-```php
-$exincoreSdk = new \Kurisu\ExinCore\ExinCore($config);
-$exincoreSdk->setBoom(false);  // or true , 默认为 true
-```
+    ```php
+    $exincoreSdk = new \Kurisu\ExinCore\ExinCore($config);
+    $exincoreSdk->setBoom(false);  // or true , 默认为 true
+    ```
 
 1. 设置网络请求超时时间
-```php
-$exincoreSdk = new \Kurisu\ExinCore\ExinCore($config);
-$exincoreSdk->setTimeout(6);  //  默认为 10
-```
+    ```php
+    $exincoreSdk = new \Kurisu\ExinCore\ExinCore($config);
+    $exincoreSdk->setTimeout(6);  //  默认为 10
+    ```
+
+## Alternatives
+
+[kurisu/laravel-exincore-sdk](https://github.com/Kurisu-package/laravel-exincore-sdk)]
+
+## LICENSE
+
+**MIT**
