@@ -10,8 +10,6 @@
 ![](https://img.shields.io/github/tag/Kurisu-package/exincore-php-sdk.svg?style=flat-square&colorA=333333)
 
 
-------
-
 ## Requirement
 1. `Composer`
 2. `PHP` >= 7.0
