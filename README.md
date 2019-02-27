@@ -57,7 +57,7 @@ $exincoreSdk = new \Kurisu\ExinCore\ExinCore($config);
 
 // 1. 查询指定交易对的行情
 $baseAsset     = 'c94ac88f-4671-3976-b60a-09064f1811e8';     // uuid
-$exchangeAsset = '815b0b1a-2764-3736-8faa-42d694fa620a'; // uuid
+$exchangeAsset = '815b0b1a-2764-3736-8faa-42d694fa620a';     // uuid
 
 $exincoreSdk->readExchangeList();                            // 查询全部交易对的行情
 $exincoreSdk->readExchangeList($baseAsset);                  // 查询 baseAsset 为 $baseAsset 的交易对的行情
