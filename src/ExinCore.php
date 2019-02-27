@@ -13,6 +13,8 @@ use ExinOne\MixinSDK\MixinSDK;
 use GuzzleHttp\Client;
 use Kurisu\ExinCore\Apis\Api;
 use Kurisu\ExinCore\Exceptions\ExinCoreExceptions;
+use MessagePack\MessagePack;
+use Ramsey\Uuid\Uuid;
 
 /**
  * @see \ExinCore\Apis\Api
@@ -141,6 +143,16 @@ class ExinCore
     public function getMixinSDK(): MixinSDK
     {
         return $this->mixinSDK;
+    }
+
+    /**
+     * @param string $memo
+     *
+     * @return mixed
+     */
+    public function decodeExinCoreMemo(string $memo)
+    {
+        return MessagePack::unpack(base64_decode($memo));
     }
 
 }
