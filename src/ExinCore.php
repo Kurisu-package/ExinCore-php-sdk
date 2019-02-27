@@ -81,7 +81,7 @@ class ExinCore
      */
     protected function boomRoom($res)
     {
-        if ($res['message'] != '' && $res['code'] != 0) {
+        if (($res['message'] ?? 'a') != '' && ($res['code'] ?? 'a') != 0) {
             throw new ExinCoreExceptions($res['message'], $res['code']);
         }
     }
